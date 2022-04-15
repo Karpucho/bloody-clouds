@@ -1,6 +1,7 @@
 const Router = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('config');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 
@@ -54,7 +55,17 @@ router.post('/login', async (req, res) => {
     if (!isPassValid) {
       return res.status(400).json({ message: 'Пароль не совпадает' });
     }
-    const token = jwt.sign({ id: user.id });
+    const token = jwt.sign({ id: user.id }, config.get('secretKey'), { expiresIn: '5h' });
+    return res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        diskSpace: user.diskSpace,
+        usedSpace: user.usedSpace,
+        avatar: user.avatar,
+      },
+    });
   } catch (error) {
     console.log(error);
     res.send({ message: 'Server in anus' });
