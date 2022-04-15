@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "config": "^3.3.7",
     "express": "^4.17.3",
+    "express-validator": "^6.14.0",
     "mongoose": "^6.3.0"
   },
   "devDependencies": {
