@@ -3,10 +3,12 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const config = require('config');
 const autRouter = require('./routes/auth.routes');
+const corsMiddleware = require('./middleware/cors.middleware');
 
 const app = express();
 const PORT = config.get('serverPort');
 
+app.use(corsMiddleware);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,5 +27,3 @@ const start = async () => {
 };
 
 start();
-
-// 23.106.56.12
