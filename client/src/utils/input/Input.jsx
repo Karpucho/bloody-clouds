@@ -1,9 +1,12 @@
 import React from 'react';
 import './input.less'
 
-function Input({props}) {
+function Input(props) {
   return (
-    <input type={props.type} placeholder={props.placeholder} />
+     <input onChange={(event) => props.setValue(event.target.value)}
+            value={props.value}
+            type={props.type}
+            placeholder={props.placeholder} />
   );
 }
 

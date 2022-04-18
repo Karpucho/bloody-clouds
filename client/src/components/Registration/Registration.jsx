@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../../utils/input/Input';
-import './registration'
+import './registration.less'
 
 function Registration(props) {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   return (
     <div className='registration'>
       <div className="registration_header">Регистрация</div>
-      <Input />
-      <Input />
-      <Input />
-      <Input />
+      <Input value={email} setValue={setEmail} type='text' placeholder='Введите email' />
+      <Input value={password} setValue={setPassword} type='password' placeholder='Введите пароль' />
+      {/* <Input type='text' placeholder='' />
+      <Input type='text' placeholder='' /> */}
       <button className="registration_btn">Зарегистрироваться</button>
     </div>
   );
