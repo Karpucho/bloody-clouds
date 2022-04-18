@@ -46,7 +46,6 @@ router.post('/login', async (req, res) => {
     // console.log(req.body, 'БОДИ');
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-
     if (!user) {
       return res.status(404).json({ message: 'Пользователь не найден' });
     }
@@ -55,7 +54,9 @@ router.post('/login', async (req, res) => {
     if (!isPassValid) {
       return res.status(400).json({ message: 'Пароль не совпадает' });
     }
+
     const token = jwt.sign({ id: user.id }, config.get('secretKey'), { expiresIn: '5h' });
+
     return res.json({
       token,
       user: {
