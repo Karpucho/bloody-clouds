@@ -1,7 +1,5 @@
 const SET_USER = 'SET_USER'
-// const SET_IS_FETCHING = 'SET_IS_FETCHING'
-// const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-// const SET_FETCH_ERROR = 'SET_FETCH_ERROR'
+const LOGOUT = 'LOGOUT'
 
 const defaultState = {
   currentUser: {},
@@ -15,12 +13,17 @@ export default function userReducer(state = defaultState, action) {
     case SET_USER:
       return {
         ...state,
-         currentUser: action.payload.user,
+         currentUser: action.payload,
          isAuth: true,
         }
 
-    // case SET_IS_FETCHING:
-    //   return {...state, isFetching: action.payload}
+    case LOGOUT:
+      localStorage.removeItem('token')
+      return {
+        ...state,
+         currentUser: {},
+         isAuth: false,
+        }
     
     // case SET_CURRENT_PAGE:
     //   return {...state, currentPage: action.payload}
@@ -34,3 +37,4 @@ export default function userReducer(state = defaultState, action) {
 }
 
 export const setUser = (user) => ({type: SET_USER, payload: user})
+export const logout = () => ({type: LOGOUT})

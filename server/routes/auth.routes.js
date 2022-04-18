@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
+const authMiddleware = require('../middleware/auth.middleware');
 
 const router = new Router();
 
@@ -72,5 +73,30 @@ router.post('/login', async (req, res) => {
     res.send({ message: 'Server in anus' });
   }
 });
+
+router.post(
+  '/auth',
+  authMiddleware,
+  async (req, res) => {
+    try {
+      const user = await User.findOne({ id: req.user.id });
+      const token = jwt.sign({ id: user.id }, config.get('secretKey'), { expiresIn: '5h' });
+
+      return res.json({
+        token,
+        user: {
+          id: user.id,
+          email: user.email,
+          diskSpace: user.diskSpace,
+          usedSpace: user.usedSpace,
+          avatar: user.avatar,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+      res.send({ message: 'Server in anus' });
+    }
+  },
+);
 
 module.exports = router;
