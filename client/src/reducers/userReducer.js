@@ -24,12 +24,6 @@ export default function userReducer(state = defaultState, action) {
          currentUser: {},
          isAuth: false,
         }
-    
-    // case SET_CURRENT_PAGE:
-    //   return {...state, currentPage: action.payload}
-
-    // case SET_FETCH_ERROR:
-    //   return {...state, isFetchError: action.payload}
 
     default:
       return state

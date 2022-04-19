@@ -17,7 +17,7 @@ function Navbar(props) {
         <div className="navbar_header">Bloody Cloud</div>
         {!isAuth && <div className="navbar_login"><Link to='/login'>Логин</Link></div>}
         {!isAuth && <div className="navbar_registration"><Link to='/registration'>Регистрация</Link></div>}
-        {isAuth && <div className="navbar_registration" onClick={() => dispatch(logout())}>Выход</div>}
+        {isAuth && <div className="navbar_login" onClick={() => dispatch(logout())}>Выход</div>}
       </div>
     </div>
   );
