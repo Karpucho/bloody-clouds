@@ -5,7 +5,8 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const authMiddleware = require('../middleware/auth.middleware');
-
+const fileService = require('../services/fileService');
+const File = require('../models/File');
 const router = new Router();
 
 router.post(
@@ -33,6 +34,8 @@ router.post(
       const user = new User({ email, password: hashPassword });
 
       await user.save();
+      await fileService.createDir(new File({user: user.id, name: ''}));
+ 
       return res.json({ message: 'Пользователь зарегистрирован успешно' });
     } catch (error) {
       console.log(error);
