@@ -9,7 +9,9 @@ class FileController {
       const file = new File({
         name, type, parent, user: req.user.id,
       });
+
       const parentFile = await File.findOne({ _id: parent });
+
       if (!parentFile) {
         file.path = name;
         await fileService.createDir(file);
@@ -19,10 +21,11 @@ class FileController {
         parentFile.childs.push(file._id);
         await parentFile.save();
       }
+
       await file.save();
       return res.json(file);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       return res.status(400).json(error);
     }
   }

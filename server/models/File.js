@@ -1,8 +1,8 @@
-const { Schema, model, ObjectId } = require('mongoose');
+const { Schema, model, ObjectId } = require('mongoose'); // type: Schema.Types.ObjectId  вместо ObjectId.
 
 const File = new Schema({
   name: { type: String, required: true },
-  type: { type: String, required: true },
+  type: { type: String, required: true }, // убрать реквайр
   accessLink: { type: String },
   size: { type: Number, default: 0 },
   path: { type: String, default: '' },
