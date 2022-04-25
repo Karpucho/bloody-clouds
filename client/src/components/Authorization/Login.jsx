@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../actions/user';
 import Input from '../../utils/input/Input';
@@ -6,6 +7,7 @@ import './authorization.less'
 
 function Login(props) {
 
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ function Login(props) {
       <Input value={password} setValue={setPassword} type='password' placeholder='Введите пароль' />
       {/* <Input type='text' placeholder='' />
       <Input type='text' placeholder='' /> */}
-      <button className="authorization_btn" onClick={() => dispatch(login(email, password))}>Войти</button>
+      <button className="authorization_btn" onClick={() => {dispatch(login(email, password)); navigate('/')}}>Войти</button>
     </div>
   );
 }

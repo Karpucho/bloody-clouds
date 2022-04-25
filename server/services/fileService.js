@@ -4,13 +4,13 @@ const File = require('../models/File');
 
 class FileService {
   createDir(file) {
-    const filePath = `${config.get('filePath')}/${file.user}/${file.path}`; // проверить слэши на обратные
+    const filePath = `${config.get('filePath')}/${file.user}/${file.path}/`; // проверить слэши на обратные и нужность последнего
 
     return new Promise(((resolve, reject) => {
       try {
         if (!fs.existsSync(filePath)) {
           // eslint-disable-next-line max-len
-          fs.mkdirSync(filePath, { recursive: true }); // возможно fs.mkdirSync(filePath, { recursive: true })
+          fs.mkdirSync(filePath, { recursive: true }); // возможно fs.mkdirSync(filePath, { recursive: true }) и убрать Sync
           resolve({ message: 'Файл создан!' }); // возможно добавить returnы перед резолвами реджектами или после return без ничего
         }
         // reject({ message: 'Файл уще существует!' });
