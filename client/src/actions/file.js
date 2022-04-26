@@ -8,7 +8,7 @@ export const getFiles = (dirId) => {
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
       }) // возможно слэш нужен после files
       // alert(response.data.message)
-      // dispatch(setFiles(response.data.user))
+      dispatch(setFiles(response.data))
       // localStorage.setItem('token', response.data.token)
       console.log(response.data);
     } catch (error) {

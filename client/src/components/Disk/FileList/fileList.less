@@ -1,0 +1,22 @@
+.filelist {
+  margin: 20px 0;
+
+  &_header {
+    display: grid;
+    grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  }
+
+  &_name {
+    grid-column-start: 2;
+  }
+
+  &_date {
+    grid-column-start: 5;
+    justify-self: center;
+  }
+
+  &_size {
+    grid-column-start: 6;
+    justify-self: center;
+  }
+}
