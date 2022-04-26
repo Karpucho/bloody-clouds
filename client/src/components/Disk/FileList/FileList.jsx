@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './fileList.less';
-import File from './File/File'
+import File from './File/File';
 
 function FileList(props) {
   const files = useSelector(state => state.files.files).map(file => <File key={file.id} file={file} />);
