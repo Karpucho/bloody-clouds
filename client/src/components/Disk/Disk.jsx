@@ -4,13 +4,14 @@ import { getFiles } from '../../actions/file';
 import FileList from './FileList//FileList'
 import Popup from './Popup';
 import './disk.less'
-import { setPopupDisplay } from '../../reducers/fileReducer';
+import { setCurrentDir, setPopupDisplay } from '../../reducers/fileReducer';
 
 
 function Disk(props) {
 
   const dispatch = useDispatch();
   const currentDir = useSelector(state => state.files.currentDir)
+  const dirStack = useSelector(state => state.files.dirStack)
 
   useEffect(()=> {
     dispatch(getFiles(currentDir))
@@ -21,7 +22,8 @@ function Disk(props) {
   }
 
   function backClickHandler() {
-    dispatch(setPopupDisplay('flex'))
+    const backDirId = dirStack.pop()
+    dispatch(setCurrentDir(backDirId))
   }
 
   return (
