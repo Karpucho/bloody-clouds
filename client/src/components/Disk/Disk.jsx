@@ -4,6 +4,7 @@ import { createDir, getFiles } from '../../actions/file';
 import FileList from './FileList//FileList'
 import Popup from './Popup';
 import './disk.less'
+import { setPopupDisplay } from '../../reducers/fileReducer';
 
 
 function Disk(props) {
@@ -15,15 +16,16 @@ function Disk(props) {
     dispatch(getFiles(currentDir))
   }, [currentDir]) // возможно в массив добавить dispatch
 
-  function createDirHandler() {
-    dispatch(createDir(currentDir, 'jops'))
+  function showPopupHandler() {
+    // dispatch(createDir(currentDir, 'jops'))
+    dispatch(setPopupDisplay('flex'))
   }
 
   return (
     <div className='disk'>
       <div className="disk_btns">
         <button className="disk_back">Назад</button>
-        <button className="disk_create" onClick={() => createDirHandler()}>Создать папку</button>
+        <button className="disk_create" onClick={() => showPopupHandler()}>Создать папку</button>
       </div>
       <FileList />
       <Popup />

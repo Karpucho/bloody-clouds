@@ -1,11 +1,12 @@
 const SET_FILES = 'SET_FILES'
 const ADD_FILE = 'ADD_FILE'
 const SET_CURRENT_DIR = 'SET_CURRENT_DIR'
-// const SET_FETCH_ERROR = 'SET_FETCH_ERROR'
+const SET_POPUP_DISPLAY = 'SET_POPUP_DISPLAY'
 
 const defaultState = {
   files: [],
   currentDir: null,
+  popupDisplay: 'none',
 }
 
 export default function fileReducer(state = defaultState, action) {
@@ -20,8 +21,8 @@ export default function fileReducer(state = defaultState, action) {
         //  isFetching: false,
         }
 
-    // case SET_IS_FETCHING:
-    //   return {...state, isFetching: action.payload}
+    case SET_POPUP_DISPLAY:
+      return {...state, popupDisplay: action.payload}
     
     case SET_CURRENT_DIR:
       return {...state, currentDir: action.payload}
@@ -37,3 +38,4 @@ export default function fileReducer(state = defaultState, action) {
 export const setFiles = (files) => ({type: SET_FILES, payload: files})
 export const setCurrentDir = (dir) => ({type: SET_CURRENT_DIR, payload: dir})
 export const addFile = (file) => ({type: ADD_FILE, payload: file})
+export const setPopupDisplay = (display) => ({type: SET_POPUP_DISPLAY, payload: display})

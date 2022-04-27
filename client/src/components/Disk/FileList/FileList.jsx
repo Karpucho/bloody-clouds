@@ -4,7 +4,9 @@ import './fileList.less';
 import File from './File/File';
 
 function FileList(props) {
+
   const files = useSelector(state => state.files.files).map(file => <File key={file.id} file={file} />);
+  
   return (
     <div className="filelist">
       <div className="filelist_header">
