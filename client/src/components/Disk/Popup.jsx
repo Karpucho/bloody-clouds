@@ -13,7 +13,6 @@ function Popup(props) {
 
   function createDirHandler() {
     dispatch(createDir(currentDir, dirName))
-    // dispatch(setPopupDisplay('flex'))
   }
 
   return (

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { addFile, setFiles } from '../reducers/fileReducer';
+import { addFile, setFiles, setPopupDisplay } from '../reducers/fileReducer';
 
 export const getFiles = (dirId) => {
   return async (dispatch) => {
@@ -30,6 +30,7 @@ export const createDir = (dirId, name) => {
       })
 
       dispatch(addFile(response.data))
+      dispatch(setPopupDisplay('none'))
 
     } catch (error) {
       alert(error.response.data.message)

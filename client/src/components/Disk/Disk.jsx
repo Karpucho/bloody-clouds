@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createDir, getFiles } from '../../actions/file';
+import { getFiles } from '../../actions/file';
 import FileList from './FileList//FileList'
 import Popup from './Popup';
 import './disk.less'
@@ -17,7 +17,6 @@ function Disk(props) {
   }, [currentDir]) // возможно в массив добавить dispatch
 
   function showPopupHandler() {
-    // dispatch(createDir(currentDir, 'jops'))
     dispatch(setPopupDisplay('flex'))
   }
 
