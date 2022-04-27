@@ -5,8 +5,8 @@ import File from './File/File';
 
 function FileList(props) {
 
-  const files = useSelector(state => state.files.files).map(file => <File key={file.id} file={file} />);
-  
+  const files = useSelector(state => state.files.files).map(file => <File key={file._id} file={file} />); // проверить key
+
   return (
     <div className="filelist">
       <div className="filelist_header">

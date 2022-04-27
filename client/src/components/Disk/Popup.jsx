@@ -13,6 +13,7 @@ function Popup(props) {
 
   function createDirHandler() {
     dispatch(createDir(currentDir, dirName))
+    setDirName('')
   }
 
   return (

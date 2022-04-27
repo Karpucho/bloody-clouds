@@ -2,24 +2,21 @@ const SET_FILES = 'SET_FILES'
 const ADD_FILE = 'ADD_FILE'
 const SET_CURRENT_DIR = 'SET_CURRENT_DIR'
 const SET_POPUP_DISPLAY = 'SET_POPUP_DISPLAY'
+const PUSH_TO_STACK = 'PUSH_TO_STACK'
+const POP_FROM_STACK = 'POP_FROM_STACK'
 
 const defaultState = {
   files: [],
   currentDir: null,
   popupDisplay: 'none',
+  dirStack: [],
 }
 
 export default function fileReducer(state = defaultState, action) {
-  // console.log(action.payload, 'ЭКШН В РЕДЬЮС');
   switch (action.type) {
    
     case SET_FILES:
-      return {
-         ...state,
-         files: action.payload,
-        //  totalCount: action.payload.total_count,
-        //  isFetching: false,
-        }
+      return {...state, files: action.payload}
 
     case SET_POPUP_DISPLAY:
       return {...state, popupDisplay: action.payload}

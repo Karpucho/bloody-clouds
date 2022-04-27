@@ -20,10 +20,14 @@ function Disk(props) {
     dispatch(setPopupDisplay('flex'))
   }
 
+  function backClickHandler() {
+    dispatch(setPopupDisplay('flex'))
+  }
+
   return (
     <div className='disk'>
       <div className="disk_btns">
-        <button className="disk_back">Назад</button>
+        <button className="disk_back" onClick={() => backClickHandler()}>Назад</button>
         <button className="disk_create" onClick={() => showPopupHandler()}>Создать папку</button>
       </div>
       <FileList />
