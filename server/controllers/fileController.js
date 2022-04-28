@@ -1,5 +1,5 @@
 const config = require('config');
-
+const fs = require('fs');
 const fileService = require('../services/fileService');
 const File = require('../models/File');
 const User = require('../models/User');
@@ -60,7 +60,31 @@ class FileController {
 
       if (parent) {
         path = `${config.get('filePath')}/${user._id}/${parent.path}/${file.name}`
+      } else {
+        path = `${config.get('filePath')}/${user._id}/${file.name}`
       }
+
+      if (fs.existsSync(path)) {
+        return res.status(400).json({ message: 'Такой файл уже существует' });
+      }
+
+      file.mv(path)
+
+      const type = file.name.split('.').pop()
+      const dbFile = new File({
+        name: file.path,
+        type,
+        size: file.size,
+        path: parent?.path,
+        parent: parent?._id,
+        user: user._id,
+      })
+
+      await dbFile.save();
+      await user.save();
+
+      res.json(dbFile)
+      
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: 'Ошибка загрузки' });
