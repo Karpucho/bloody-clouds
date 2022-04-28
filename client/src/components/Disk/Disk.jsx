@@ -29,7 +29,7 @@ function Disk(props) {
   return (
     <div className='disk'>
       <div className="disk_btns">
-        <button className="disk_back" onClick={() => backClickHandler()}>Назад</button>
+        {currentDir && <button className="disk_back" onClick={() => backClickHandler()}>Назад</button>}
         <button className="disk_create" onClick={() => showPopupHandler()}>Создать папку</button>
       </div>
       <FileList />

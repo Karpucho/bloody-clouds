@@ -1,6 +1,8 @@
+const config = require('config');
+
 const fileService = require('../services/fileService');
 const File = require('../models/File');
-// const User = require('../models/User');
+const User = require('../models/User');
 
 class FileController {
   async createDir(req, res) {
@@ -37,6 +39,31 @@ class FileController {
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: 'Нет такого файла' });
+    }
+  }
+
+  async uploadFile(req, res) {
+    try {
+      const { file } = req.files; // TODO: проверить деструктуризацию, сделать req.files.file
+
+      const parent = await File.findOne({ user: req.user.id, _id: req.body.parent });
+
+      const user = await User.findOne({ _id: req.user.id });
+
+      if (user.usedSpace + file.size > user.diskSpace) {
+        return res.status(400).json({ message: 'На диске не хватает свободного места' });
+      }
+
+      user.usedSpace += file.size;
+
+      let path;
+
+      if (parent) {
+        path = `${config.get('filePath')}/${user._id}/${parent.path}/${file.name}`
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: 'Ошибка загрузки' });
     }
   }
 }
