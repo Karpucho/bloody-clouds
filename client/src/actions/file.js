@@ -56,13 +56,12 @@ export const uploadFile = (file, dirId) => {
           console.log(totalLength, 'TOTAL LENGTH');
           if (totalLength) {
             let progress = Math.round((progressEvent.loaded * 100) / totalLength)
-            console.log(progress);
+            console.log(progress, "PROGRESS");
           }
         }
       })
 
       dispatch(addFile(response.data))
-      // dispatch(setPopupDisplay('none'))
 
     } catch (error) {
       alert(error.response.data.message)
