@@ -23,6 +23,8 @@ function File({file}) {
       <div className='file_name'>{file.name}</div>
       <div className='file_date'>{file.date.slice(0, 10)}</div>
       <div className='file_size'>{file.size}</div>
+      <button>Загрузить</button>
+      <button>Удалить</button>
     </div>
   );
 }
