@@ -35,23 +35,28 @@ function Disk(props) {
   function dragEnterHandler(event) {
     event.preventDefault()
     event.stopPropagation()
+
     setDragEnter(true)
   }
 
   function dragLeaveHandler(event) {
     event.preventDefault()
     event.stopPropagation()
+
     setDragEnter(false)
   }
 
-  // function dragOverHandler(event) {
-  //   event.preventDefault()
-  //   event.stopPropagation()
-  //   setDragEnter(true)
-  // }
+  function dropHandler(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    
+    let files = [...event.dataTransfer.files]
+    files.forEach(file => dispatch(uploadFile(file, currentDir)))
+    setDragEnter(false)
+  }
 
-  return ( !dragEnter ?
-    <div className='disk' onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
+  return ( !dragEnter ?// возможно добавить слушатели onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler} в див disk
+    <div className='disk' onDragEnter={dragEnterHandler}> 
       <div className="disk_btns">
         {currentDir && <button className="disk_back" onClick={() => backClickHandler()}>Назад</button>}
         <button className="disk_create" onClick={() => showPopupHandler()}>Создать папку</button>
@@ -64,7 +69,7 @@ function Disk(props) {
       <Popup />
     </div>
     :
-    <div className="drop-area" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
+    <div className="drop-area" onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
       Переместите сюда файлы
     </div>
   );
