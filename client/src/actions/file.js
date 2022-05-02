@@ -76,7 +76,7 @@ export async function downloadFile(file) {
   })
 
   if (response.ok) { // возможно поменять на response.status === 200
-    // console.log(response);
+    // console.log(response, 'РЕСПОНС НА КЛИЕНТЕ');
     const blob = await response.blob()
     const downloadUrl = window.URL.createObjectURL(blob)
     const link = document.createElement('a')

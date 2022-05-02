@@ -4,7 +4,7 @@ const File = require('../models/File');
 
 class FileService {
   createDir(file) {
-    const filePath = `${config.get('filePath')}/${file.user}/${file.path}/`; // проверить слэши на обратные и нужность последнего
+    const filePath = this.getPath(file); // проверить слэши на обратные и нужность последнего
 
     return new Promise(((resolve, reject) => {
       try {
@@ -33,7 +33,7 @@ class FileService {
   }
 
   getPath(file) {
-    return `${config.get('filePath')}/${file.user}/${file.path}/`; // проверить слэши на обратные и нужность последнего
+    return `${config.get('filePath')}/${file.user}/${file.path}`; // проверить слэши на обратные и нужность последнего
   }
 }
 
