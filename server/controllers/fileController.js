@@ -68,11 +68,17 @@ class FileController {
       await file.mv(path); // возможно убрать await
 
       const type = file.name.split('.').pop();
+
+      let filePath = file.name;
+      if (parent) {
+        filePath = `${parent.path}/${file.name}`;
+      }
+
       const dbFile = new File({
         name: file.name,
         type,
         size: file.size,
-        path: parent?.path,
+        path: filePath,
         parent: parent?._id,
         user: user._id,
       });
@@ -100,6 +106,25 @@ class FileController {
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: 'Ошибка скачивания' });
+    }
+  }
+
+  async deleteFile(req, res) {
+    try {
+      const file = await File.findOne({ _id: req.query.id, user: req.user.id });
+      // const path = `${config.get('filePath')}/${req.user.id}/${file.path}/${file.name}`;
+
+      if (!file) {
+        return res.status(400).json({ message: 'Файл не найден' });
+      }
+
+      fileService.deleteFile(file);
+
+      await file.remove();
+      return res.json({ message: 'Файл удален' });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ message: 'Папка не пуста, удалите файлы перед удалением папки' });
     }
   }
 }
