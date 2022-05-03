@@ -5,7 +5,7 @@ const REMOVE_UPLOAD_FILE = 'REMOVE_UPLOAD_FILE'
 const CHANGE_UPLOAD_FILE = 'CHANGE_UPLOAD_FILE'
 
 const defaultState = {
-  isVisible: true,
+  isVisible: false,
   files: [],
 }
 
@@ -20,10 +20,19 @@ export default function userReducer(state = defaultState, action) {
       return {...state, isVisible: false}
 
     case ADD_UPLOAD_FILE:
-      return {...state, files: [...state.files, {...action.payload, id: state.files.length}]}
+      return {...state, files: [...state.files, action.payload]}
 
     case REMOVE_UPLOAD_FILE:
       return {...state, files: [...state.files.filter(file => file.id !== action.payload)]} // на file._id
+
+    case CHANGE_UPLOAD_FILE:
+      return {
+        ...state,
+        files: [...state.files.map(file => file.id === action.payload // на file._id
+          ? {...file, progress: action.payload.progress}
+          : {...file}
+          )] 
+        }
 
     default:
       return state
@@ -33,6 +42,7 @@ export default function userReducer(state = defaultState, action) {
 export const showUploader = () => ({type: SHOW_UPLOADER})
 export const hideUploader = () => ({type: HIDE_UPLOADER})
 export const addUploadFile = (file) => ({type: ADD_UPLOAD_FILE, payload: file})
-export const removeUploadFile = (file) => ({type: REMOVE_UPLOAD_FILE, payload: file})
+export const removeUploadFile = (fileId) => ({type: REMOVE_UPLOAD_FILE, payload: fileId})
+export const changeUploadFile = (payload) => ({type: CHANGE_UPLOAD_FILE, payload: payload})
 
 // два последних проверить
