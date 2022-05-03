@@ -20,11 +20,19 @@ export default function userReducer(state = defaultState, action) {
       return {...state, isVisible: false}
 
     case ADD_UPLOAD_FILE:
-      return {...state, isVisible: false}
+      return {...state, files: [...state.files, {...action.payload, id: state.files.length}]}
+
+    case REMOVE_UPLOAD_FILE:
+      return {...state, files: [...state.files.filter(file => file.id !== action.payload)]} // на file._id
 
     default:
       return state
   }
 }
 
-export const setUser = (user) => ({type: SET_USER, payload: user})
+export const showUploader = () => ({type: SHOW_UPLOADER})
+export const hideUploader = () => ({type: HIDE_UPLOADER})
+export const addUploadFile = (file) => ({type: ADD_UPLOAD_FILE, payload: file})
+export const removeUploadFile = (file) => ({type: REMOVE_UPLOAD_FILE, payload: file})
+
+// два последних проверить
