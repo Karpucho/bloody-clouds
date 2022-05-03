@@ -5,6 +5,7 @@ import FileList from './FileList//FileList'
 import Popup from './Popup';
 import './disk.less'
 import { setCurrentDir, setPopupDisplay } from '../../reducers/fileReducer';
+import Uploader from './Uploader/Uploader';
 
 
 function Disk(props) {
@@ -67,6 +68,7 @@ function Disk(props) {
       </div>
       <FileList />
       <Popup />
+      <Uploader />
     </div>
     :
     <div className="drop-area" onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>

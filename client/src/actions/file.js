@@ -33,7 +33,7 @@ export const createDir = (dirId, name) => {
       dispatch(setPopupDisplay('none'))
 
     } catch (error) {
-      alert(error.response.data.message)
+      alert(error.message)
     }
   }
 }

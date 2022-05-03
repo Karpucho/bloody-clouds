@@ -27,8 +27,7 @@ class FileController {
       await file.save();
       return res.json(file);
     } catch (error) {
-      console.log(error.message);
-      return res.status(400).json(error);
+      return res.status(400).json(error.message);
     }
   }
 
