@@ -14,10 +14,11 @@ function Disk(props) {
   const currentDir = useSelector(state => state.files.currentDir)
   const dirStack = useSelector(state => state.files.dirStack)
   const [dragEnter, setDragEnter] = useState(false)
+  const [sort, setSort] = useState('type')
 
   useEffect(()=> {
-    dispatch(getFiles(currentDir))
-  }, [currentDir]) // возможно в массив добавить dispatch
+    dispatch(getFiles(currentDir, sort))
+  }, [currentDir, sort]) // возможно в массив добавить dispatch
 
   function showPopupHandler() {
     dispatch(setPopupDisplay('flex'))
@@ -59,12 +60,22 @@ function Disk(props) {
   return ( !dragEnter ?// возможно добавить слушатели onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler} в див disk
     <div className='disk' onDragEnter={dragEnterHandler}> 
       <div className="disk_btns">
+
         {currentDir && <button className="disk_back" onClick={() => backClickHandler()}>Назад</button>}
         <button className="disk_create" onClick={() => showPopupHandler()}>Создать папку</button>
+
         <div className="disk_upload">
           <label htmlFor="disk_upload-input" className="disk_upload-label">Загрузить файл</label>
           <input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file" id="disk_upload-input" className="disk_upload-input" />
         </div>
+
+        <select value={sort}
+                onChange={(event) => setSort(event.target.value)}
+                className="disk_select">
+          <option value="name">По имени</option>
+          <option value="type">По типу</option>
+          <option value="date">По дате</option>
+        </select>
       </div>
       <FileList />
       <Popup />
