@@ -10,7 +10,7 @@ export const getFiles = (dirId, sort) => {
 
       if (dirId) {
         url = `http://localhost:5000/api/files?parent=${dirId}`
-      }
+      } // возможно лишний if
 
       if (sort) {
         url = `http://localhost:5000/api/files?sort=${sort}`
