@@ -8,6 +8,12 @@ function FileList() {
 
   const files = useSelector(state => state.files.files); // проверить key
 
+  if (!files.length) {
+    return (
+      <div className="loader">Эта папка пока пуста</div>
+    )
+  }
+
   return (
     <div className="filelist">
       <div className="filelist_header">

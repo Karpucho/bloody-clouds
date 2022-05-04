@@ -143,6 +143,20 @@ class FileController {
       return res.status(400).json({ message: 'Папка не пуста, удалите файлы перед удалением папки' });
     }
   }
+
+  async searchFile(req, res) {
+    try {
+      const searchFile = req.query.search;
+
+      let files = await File.find({ user: req.user.id });
+      files = files.filter((file) => file.name.includes(searchFile));
+
+      return res.json({ files });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ message: 'Ошибка поиска' });
+    }
+  }
 }
 
 module.exports = new FileController();

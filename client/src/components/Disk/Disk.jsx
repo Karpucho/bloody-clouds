@@ -12,6 +12,7 @@ function Disk(props) {
 
   const dispatch = useDispatch();
   const currentDir = useSelector(state => state.files.currentDir)
+  const loader = useSelector(state => state.app.loader)
   const dirStack = useSelector(state => state.files.dirStack)
   const [dragEnter, setDragEnter] = useState(false)
   const [sort, setSort] = useState('type')
@@ -55,6 +56,14 @@ function Disk(props) {
     let files = [...event.dataTransfer.files]
     files.forEach(file => dispatch(uploadFile(file, currentDir)))
     setDragEnter(false)
+  }
+
+  if (loader === true) {
+    return (
+      <div className="loader">
+        <div className="lds-dual-ring"></div>
+      </div>
+    )
   }
 
   return ( !dragEnter ?// возможно добавить слушатели onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler} в див disk

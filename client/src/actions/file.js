@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { hideLoader, showLoader } from '../reducers/appReducer';
 import { addFile, deleteFileAction, setFiles, setPopupDisplay } from '../reducers/fileReducer';
 import { addUploadFile, changeUploadFile, showUploader } from '../reducers/uploadReducer';
 
@@ -6,6 +7,7 @@ export const getFiles = (dirId, sort) => {
   return async (dispatch) => {
     try {
 
+      dispatch(showLoader())
       let url = `http://localhost:5000/api/files`
 
       if (dirId) {
@@ -28,6 +30,8 @@ export const getFiles = (dirId, sort) => {
 
     } catch (error) {
       alert(error.response.data.message)
+    } finally {
+      dispatch(hideLoader())
     }
   }
 }
@@ -118,6 +122,22 @@ export const deleteFile = (file) => {
 
       dispatch(deleteFileAction(file._id))
       alert(response.data.message)
+
+    } catch (error) {
+      alert(error.response.data.message)
+    }
+  }
+}
+
+export const searchFiles = (search) => {
+  return async (dispatch) => {
+    try {
+
+      const response = await axios.get(`http://localhost:5000/api/files/search?search=${search}`, {
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+      })
+
+      dispatch(setFiles(response.data))
 
     } catch (error) {
       alert(error.response.data.message)
