@@ -10,14 +10,13 @@ const defaultState = {
 }
 
 export default function userReducer(state = defaultState, action) {
-  // console.log(action.payload, 'ЭКШН В РЕДЬЮС');
   switch (action.type) {
    
     case SHOW_UPLOADER:
       return {...state, isVisible: true}
 
     case HIDE_UPLOADER:
-      return {...state, isVisible: false}
+      return {...state, isVisible: false, files: []}
 
     case ADD_UPLOAD_FILE:
       return {...state, files: [...state.files, action.payload]}
@@ -28,7 +27,7 @@ export default function userReducer(state = defaultState, action) {
     case CHANGE_UPLOAD_FILE:
       return {
         ...state,
-        files: [...state.files.map(file => file.id === action.payload // на file._id
+        files: [...state.files.map(file => file.id === action.payload.id // на file._id и action.payload.id
           ? {...file, progress: action.payload.progress}
           : {...file}
           )] 

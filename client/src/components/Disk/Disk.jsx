@@ -72,7 +72,7 @@ function Disk(props) {
     </div>
     :
     <div className="drop-area" onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
-      Переместите сюда файлы
+      Переместите файлы сюда
     </div>
   );
 }

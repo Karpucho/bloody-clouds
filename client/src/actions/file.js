@@ -50,7 +50,7 @@ export const uploadFile = (file, dirId) => {
         formData.append('parent', dirId)
       }
 
-      const uploadFile = {name: file.name, progress: 0, id: Date.now()}
+      const uploadFile = {name: file.name, progress: 0, id: Date.now() + file.size} // убрать file.size
       dispatch(showUploader())
       dispatch(addUploadFile(uploadFile))
 
