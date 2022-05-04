@@ -4,17 +4,37 @@ import Logo from '../../assets/img/navbar-logo.svg'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../reducers/userReducer';
-import { searchFiles } from '../../actions/file';
+import { getFiles, searchFiles } from '../../actions/file';
+import { showLoader } from '../../reducers/appReducer';
 
 function Navbar(props) {
 
   const isAuth = useSelector(state => state.user.isAuth)
+  const currentDir = useSelector(state => state.files.currentDir)
   const dispatch = useDispatch()
   const [searchName, setSearchName] = useState('')
+  const [searchTimeout, setSearchTimeout] = useState(false)
+
+
 
   function searchChangeHandler(event) {
     setSearchName(event.target.value)
-    dispatch(searchFiles(searchName)) // проверить
+
+    if (searchTimeout !== false) {
+      clearTimeout(searchTimeout)
+    }
+
+    dispatch(showLoader())
+
+    if (event.target.value !== '') {
+      setSearchTimeout(setTimeout((value) => {
+        dispatch(searchFiles(value)) // проверить
+      }, 1000, event.target.value))
+    } else {
+      dispatch(getFiles(currentDir))
+    }
+
+  
   }
 
   return (

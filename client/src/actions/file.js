@@ -141,6 +141,8 @@ export const searchFiles = (search) => {
 
     } catch (error) {
       alert(error.response.data.message)
+    } finally {
+      dispatch(hideLoader())
     }
   }
 }

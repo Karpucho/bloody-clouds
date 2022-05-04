@@ -149,9 +149,9 @@ class FileController {
       const searchFile = req.query.search;
 
       let files = await File.find({ user: req.user.id });
-      files = files.filter((file) => file.name.includes(searchFile));
+      files = files.filter((file) => file.name.toLowerCase().includes(searchFile.toLowerCase()));
 
-      return res.json({ files });
+      return res.json(files);
     } catch (error) {
       console.log(error);
       return res.status(400).json({ message: 'Ошибка поиска' });
