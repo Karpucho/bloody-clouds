@@ -11,11 +11,9 @@ function Navbar(props) {
 
   const isAuth = useSelector(state => state.user.isAuth)
   const currentDir = useSelector(state => state.files.currentDir)
-  const dispatch = useDispatch()
   const [searchName, setSearchName] = useState('')
   const [searchTimeout, setSearchTimeout] = useState(false)
-
-
+  const dispatch = useDispatch()
 
   function searchChangeHandler(event) {
     setSearchName(event.target.value)
@@ -33,8 +31,6 @@ function Navbar(props) {
     } else {
       dispatch(getFiles(currentDir))
     }
-
-  
   }
 
   return (
@@ -43,7 +39,7 @@ function Navbar(props) {
         <img src={Logo} alt="" className="navbar_logo" />
         <div className="navbar_header">Bloody Cloud</div>
         {isAuth && <input 
-            value={searchName}
+            value={searchName} // возможно лишнее 
             onChange={(event) => searchChangeHandler(event)}
             className="navbar_search" 
             type="text" 

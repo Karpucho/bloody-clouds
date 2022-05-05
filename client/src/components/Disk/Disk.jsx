@@ -8,7 +8,7 @@ import { setCurrentDir, setPopupDisplay } from '../../reducers/fileReducer';
 import Uploader from './Uploader/Uploader';
 
 
-function Disk(props) {
+function Disk() {
 
   const dispatch = useDispatch();
   const currentDir = useSelector(state => state.files.currentDir)
@@ -58,7 +58,7 @@ function Disk(props) {
     setDragEnter(false)
   }
 
-  if (loader === true) {
+  if (loader) {
     return (
       <div className="loader">
         <div className="lds-dual-ring"></div>
@@ -66,7 +66,7 @@ function Disk(props) {
     )
   }
 
-  return ( !dragEnter ?// возможно добавить слушатели onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler} в див disk
+  return ( !dragEnter ? // возможно добавить слушатели onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler} в див disk
     <div className='disk' onDragEnter={dragEnterHandler}> 
       <div className="disk_btns">
 

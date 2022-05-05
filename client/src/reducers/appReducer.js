@@ -6,7 +6,6 @@ const defaultState = {
 }
 
 export default function appReducer(state = defaultState, action) {
-  // console.log(action.payload, 'ЭКШН В РЕДЬЮС');
   switch (action.type) {
    
     case SHOW_LOADER:
