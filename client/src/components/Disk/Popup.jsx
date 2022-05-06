@@ -4,7 +4,7 @@ import { createDir } from '../../actions/file';
 import { setPopupDisplay } from '../../reducers/fileReducer';
 import Input from '../../utils/input/Input';
 
-function Popup(props) {
+function Popup() {
 
   const [dirName, setDirName] = useState('')
   const popupDisplay = useSelector(state => state.files.popupDisplay)

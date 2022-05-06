@@ -30,7 +30,6 @@ function App() {
             :
             <Routes>
               <Route path="/" element={<Disk />} />
-              {/* <Route path="/login" element={<Login />} /> */}
             </Routes>
           }
         </div>

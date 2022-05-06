@@ -13,8 +13,6 @@ function Registration(props) {
       <div className="authorization_header">Регистрация</div>
       <Input value={email} setValue={setEmail} type='text' placeholder='Введите email' />
       <Input value={password} setValue={setPassword} type='password' placeholder='Введите пароль' />
-      {/* <Input type='text' placeholder='' />
-      <Input type='text' placeholder='' /> */}
       <button className="authorization_btn" onClick={() => registration(email, password)}>Зарегистрироваться</button>
     </div>
   );

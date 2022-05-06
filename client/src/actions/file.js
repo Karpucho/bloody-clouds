@@ -76,11 +76,9 @@ export const uploadFile = (file, dirId) => {
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
         onUploadProgress: (progressEvent) => {
           const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
-          // console.log(totalLength, 'TOTAL LENGTH');
           if (totalLength) {
             uploadFile.progress = Math.round((progressEvent.loaded * 100) / totalLength)
             dispatch(changeUploadFile(uploadFile))
-            // console.log(progress, "PROGRESS");
           }
         }
       })
@@ -100,7 +98,6 @@ export async function downloadFile(file) {
   })
 
   if (response.ok) { // возможно поменять на response.status === 200
-    // console.log(response, 'РЕСПОНС НА КЛИЕНТЕ');
     const blob = await response.blob()
     const downloadUrl = window.URL.createObjectURL(blob)
     const link = document.createElement('a')

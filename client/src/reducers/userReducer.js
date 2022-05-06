@@ -7,7 +7,6 @@ const defaultState = {
 }
 
 export default function userReducer(state = defaultState, action) {
-  // console.log(action.payload, 'ЭКШН В РЕДЬЮС');
   switch (action.type) {
    
     case SET_USER:
