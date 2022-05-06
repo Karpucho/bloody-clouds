@@ -4,7 +4,7 @@ import { getFiles, uploadFile } from '../../actions/file';
 import FileList from './FileList//FileList'
 import Popup from './Popup';
 import './disk.less'
-import { setCurrentDir, setPopupDisplay } from '../../reducers/fileReducer';
+import { setCurrentDir, setFileView, setPopupDisplay } from '../../reducers/fileReducer';
 import Uploader from './Uploader/Uploader';
 
 
@@ -85,6 +85,9 @@ function Disk() {
           <option value="type">По типу</option>
           <option value="date">По дате</option>
         </select>
+
+        <button className="disk_plate" onClick={() => dispatch(setFileView('plate'))}/>
+        <button className="disk_list" onClick={() => dispatch(setFileView('list'))} />
       </div>
       <FileList />
       <Popup />

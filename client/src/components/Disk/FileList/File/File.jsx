@@ -11,6 +11,7 @@ function File({file}) {
 
   const dispatch = useDispatch();
   const currentDir = useSelector(state => state.files.currentDir)
+  const fileView = useSelector(state => state.files.view)
 
   function openDirHandler(file) {
     if (file.type === 'dir') {
@@ -29,16 +30,34 @@ function File({file}) {
     dispatch(deleteFile(file));
   }
 
-  return (
-    <div className='file' onClick={() => openDirHandler(file)}>
-      <img src={file.type === 'dir' ? dirLogo : fileLogo} alt='file_pic' className='file_img'/>
-      <div className='file_name'>{file.name}</div>
-      <div className='file_date'>{file.date.slice(0, 10)}</div>
-      <div className='file_size'>{sizeFiles(file.size)}</div>
-      { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file_btn file_download">Загрузить</button> }
-      <button onClick={(event) => deleteClickHandler(event)} className="file_btn file_delete">Удалить</button>
-    </div>
-  );
+  if (fileView === 'list') {
+    return (
+      <div className='file' onClick={() => openDirHandler(file)}>
+        <img src={file.type === 'dir' ? dirLogo : fileLogo} alt='file_pic' className='file_img'/>
+        <div className='file_name'>{file.name}</div>
+        <div className='file_date'>{file.date.slice(0, 10)}</div>
+        <div className='file_size'>{sizeFiles(file.size)}</div>
+        { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file_btn file_download">Загрузить</button> }
+        <button onClick={(event) => deleteClickHandler(event)} className="file_btn file_delete">Удалить</button>
+      </div>
+    );
+  }
+
+  if (fileView === 'plate') {
+    return (
+      <div className='file-plate' onClick={() => openDirHandler(file)}>
+        <img src={file.type === 'dir' ? dirLogo : fileLogo} alt='file_pic' className='file-plate_img'/>
+        <div className='file-plate_name'>{file.name}</div>
+        <div className='file-plate_btns'>
+          { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file-plate_btn file_download">Загрузить</button> }
+          <button onClick={(event) => deleteClickHandler(event)} className="file-plate_btn file_delete">Удалить</button>
+        </div>
+      </div>
+    );
+  }
+
+
+
 }
 
 export default File;
