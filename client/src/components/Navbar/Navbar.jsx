@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import './navbar.less'
 import Logo from '../../assets/img/navbar-logo.svg'
+import avatarLogo from '../../assets/img/avatar.svg'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../reducers/userReducer';
 import { getFiles, searchFiles } from '../../actions/file';
 import { showLoader } from '../../reducers/appReducer';
+import {API_URL} from '../../config'
 
 function Navbar(props) {
 
   const isAuth = useSelector(state => state.user.isAuth)
   const currentDir = useSelector(state => state.files.currentDir)
+  const currentUser = useSelector(state => state.user.currentUser)
   const [searchName, setSearchName] = useState('')
   const [searchTimeout, setSearchTimeout] = useState(false)
   const dispatch = useDispatch()
+  const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
 
   function searchChangeHandler(event) {
     setSearchName(event.target.value)
@@ -44,9 +48,10 @@ function Navbar(props) {
             className="navbar_search" 
             type="text" 
             placeholder="Поиск файла" />}
-        {!isAuth && <div className="navbar_login"><Link to='/login'>Логин</Link></div>}
-        {!isAuth && <div className="navbar_registration"><Link to='/registration'>Регистрация</Link></div>}
+        {!isAuth && <div className="navbar_login"><Link to='/login'>Залогиниться</Link></div>}
+        {!isAuth && <div className="navbar_registration"><Link to='/registration'>Зарегистрироваться</Link></div>}
         {isAuth && <div className="navbar_login" onClick={() => dispatch(logout())}>Выход</div>}
+        {isAuth && <Link to='/profile'><img src={avatar} alt="avatar" className="" /></Link> }
       </div>
     </div>
   );

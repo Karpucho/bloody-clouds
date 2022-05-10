@@ -7,6 +7,7 @@ import Login from './Authorization/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../actions/user';
 import Disk from './Disk/Disk';
+import Profile from './Profile/Profile';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             :
             <Routes>
               <Route path="/" element={<Disk />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           }
         </div>
