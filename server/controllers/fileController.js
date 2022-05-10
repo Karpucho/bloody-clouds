@@ -158,6 +158,21 @@ class FileController {
       return res.status(400).json({ message: 'Ошибка поиска' });
     }
   }
+
+  async uploadAvatar(req, res) {
+    try {
+      const { file } = req.files; // TODO: проверить деструктуризацию, сделать req.files.file
+      const user = await User.findOne({ _id: req.user.id });
+
+      let files = await File.find({ user: req.user.id });
+      files = files.filter((file) => file.name.toLowerCase().includes(searchFile.toLowerCase()));
+
+      return res.json(files);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ message: 'Ошибка загрузки аватара' });
+    }
+  }
 }
 
 module.exports = new FileController();
