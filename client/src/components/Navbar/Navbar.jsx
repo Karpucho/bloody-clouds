@@ -9,7 +9,7 @@ import { getFiles, searchFiles } from '../../actions/file';
 import { showLoader } from '../../reducers/appReducer';
 import {API_URL} from '../../config'
 
-function Navbar(props) {
+function Navbar() {
 
   const isAuth = useSelector(state => state.user.isAuth)
   const currentDir = useSelector(state => state.files.currentDir)
@@ -51,7 +51,7 @@ function Navbar(props) {
         {!isAuth && <div className="navbar_login"><Link to='/login'>Залогиниться</Link></div>}
         {!isAuth && <div className="navbar_registration"><Link to='/registration'>Зарегистрироваться</Link></div>}
         {isAuth && <div className="navbar_login" onClick={() => dispatch(logout())}>Выход</div>}
-        {isAuth && <Link to='/profile'><img src={avatar} alt="avatar" className="" /></Link> }
+        {isAuth && <Link to='/profile'><img src={avatar} alt="avatar" className="navbar_avatar" /></Link> }
       </div>
     </div>
   );
