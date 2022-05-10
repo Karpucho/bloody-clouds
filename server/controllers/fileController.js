@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 const config = require('config');
 const fs = require('fs');
+const Uuid = require('uuid');
 const fileService = require('../services/fileService');
 const File = require('../models/File');
 const User = require('../models/User');
@@ -164,10 +165,33 @@ class FileController {
       const { file } = req.files; // TODO: проверить деструктуризацию, сделать req.files.file
       const user = await User.findOne({ _id: req.user.id });
 
-      let files = await File.find({ user: req.user.id });
-      files = files.filter((file) => file.name.toLowerCase().includes(searchFile.toLowerCase()));
+      const avatarName = `${Uuid.v4()}.jpg`; // проверить конкатенацию
 
-      return res.json(files);
+      file.mv(`${config.get('staticPath')}/${avatarName}`);
+
+      user.avatar = avatarName;
+
+      await user.save();
+      return res.json({ message: 'Аватар загружен' });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ message: 'Ошибка загрузки аватара' });
+    }
+  }
+
+  async deleteAvatar(req, res) {
+    try {
+      const { file } = req.files; // TODO: проверить деструктуризацию, сделать req.files.file
+      const user = await User.findOne({ _id: req.user.id });
+
+      const avatarName = `${Uuid.v4()}.jpg`; // проверить конкатенацию
+
+      file.mv(`${config.get('staticPath')}/${avatarName}`);
+
+      user.avatar = avatarName;
+
+      await user.save();
+      return res.json({ message: 'Аватар загружен' });
     } catch (error) {
       console.log(error);
       return res.status(400).json({ message: 'Ошибка загрузки аватара' });
