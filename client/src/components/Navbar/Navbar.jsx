@@ -40,7 +40,7 @@ function Navbar() {
   return (
     <div className='navbar'>
       <div className="container">
-        <img src={Logo} alt="" className="navbar_logo" />
+        <Link to='/'><img src={Logo} alt="logo" className="navbar_logo" /></Link>
         <div className="navbar_header">Bloody Cloud</div>
         {isAuth && <input 
             value={searchName} // возможно лишнее 
