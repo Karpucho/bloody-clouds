@@ -172,7 +172,7 @@ class FileController {
       user.avatar = avatarName;
 
       await user.save();
-      return res.json({ message: 'Аватар загружен' });
+      return res.json(user);
     } catch (error) {
       console.log(error);
       return res.status(400).json({ message: 'Ошибка загрузки аватара' });
@@ -181,20 +181,17 @@ class FileController {
 
   async deleteAvatar(req, res) {
     try {
-      const { file } = req.files; // TODO: проверить деструктуризацию, сделать req.files.file
       const user = await User.findOne({ _id: req.user.id });
 
-      const avatarName = `${Uuid.v4()}.jpg`; // проверить конкатенацию
+      fs.unlinkSync(`${config.get('staticPath')}/${user.avatar}`);
 
-      file.mv(`${config.get('staticPath')}/${avatarName}`);
-
-      user.avatar = avatarName;
+      user.avatar = null;
 
       await user.save();
-      return res.json({ message: 'Аватар загружен' });
+      return res.json(user);
     } catch (error) {
       console.log(error);
-      return res.status(400).json({ message: 'Ошибка загрузки аватара' });
+      return res.status(400).json({ message: 'Ошибка удаления аватара' });
     }
   }
 }
