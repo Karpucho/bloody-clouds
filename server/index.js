@@ -16,7 +16,6 @@ app.use(fileUpload({}));
 app.use(corsMiddleware);
 app.use(filePathMiddleware(path.resolve(__dirname, 'files')));
 app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('static'));
 app.use('/api/auth', authRouter);

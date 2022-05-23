@@ -1,5 +1,5 @@
 import React from 'react';
-import './file.less';
+import './file.css';
 import dirLogo from '../../../../assets/img/dir.svg';
 import fileLogo from '../../../../assets/img/file.svg';
 import { useDispatch, useSelector } from 'react-redux';

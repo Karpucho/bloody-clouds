@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getFiles, uploadFile } from '../../actions/file';
 import FileList from './FileList//FileList'
 import Popup from './Popup';
-import './disk.less'
+import './disk.css'
 import { setCurrentDir, setFileView, setPopupDisplay } from '../../reducers/fileReducer';
 import Uploader from './Uploader/Uploader';
 

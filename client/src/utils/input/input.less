@@ -1,4 +1,4 @@
-@import '../colors.less';
+@import '../colors.css';
 
 input {
   border: none;
@@ -6,25 +6,33 @@ input {
   background: transparent;
   width: 100%;
   padding: 3px;
+
   &:focus {
     outline: none;
     transform: scale(1.02);
   }
 }
 
-::-webkit-input-placeholder { /* Chrome */
+::-webkit-input-placeholder {
+  /* Chrome */
   color: @font-color;
   font-weight: 700;
 }
-:-ms-input-placeholder { /* IE 10+ */
+
+:-ms-input-placeholder {
+  /* IE 10+ */
   color: @font-color;
   font-weight: 700;
 }
-::-moz-placeholder { /* Firefox 19+ */
+
+::-moz-placeholder {
+  /* Firefox 19+ */
   color: @font-color;
   font-weight: 700;
 }
-:-moz-placeholder { /* Firefox 4 - 18 */
+
+:-moz-placeholder {
+  /* Firefox 4 - 18 */
   color: @font-color;
   font-weight: 700;
 }

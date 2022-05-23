@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from "./Navbar/Navbar";
-import './app.less'
+import './app.css'
 import Registration from './Authorization/Registration.jsx';
 import Login from './Authorization/Login';
 import { useDispatch, useSelector } from 'react-redux';

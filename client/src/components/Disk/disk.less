@@ -1,4 +1,4 @@
-@import '../../utils/colors.less';
+@import '../../utils/colors.css';
 
 .disk {
   margin-top: 20px;
@@ -26,7 +26,8 @@
     margin-left: auto;
   }
 
-  &_list, &_plate {
+  &_list,
+  &_plate {
     width: 20px;
     height: 20px;
     border: none;
@@ -85,7 +86,7 @@
 
   &_header {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
   }
 
   input {
@@ -105,6 +106,7 @@
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -116,10 +118,12 @@
   border-color: @font-color transparent @font-color transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

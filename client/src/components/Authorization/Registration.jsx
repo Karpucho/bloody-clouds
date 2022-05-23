@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Input from '../../utils/input/Input';
-import './authorization.less'
+import './authorization.css'
 import { registration } from '../../actions/user';
 
 function Registration(props) {

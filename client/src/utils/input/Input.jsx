@@ -1,5 +1,5 @@
 import React from 'react';
-import './input.less'
+import './input.css'
 
 function Input(props) {
   return (
