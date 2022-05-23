@@ -86,8 +86,8 @@ function Disk() {
           <option value="date">По дате</option>
         </select>
 
-        <button className="disk_plate" onClick={() => dispatch(setFileView('plate'))}>plate</button>
-        <button className="disk_list" onClick={() => dispatch(setFileView('list'))} >list</button>
+        <button className="disk_plate" onClick={() => dispatch(setFileView('plate'))}></button>
+        <button className="disk_list" onClick={() => dispatch(setFileView('list'))} ></button>
       </div>
       <FileList />
       <Popup />

@@ -45,7 +45,7 @@ function Navbar() {
         {isAuth && <input 
             value={searchName} // возможно лишнее 
             onChange={(event) => searchChangeHandler(event)}
-            className="navbar_search" 
+            className="navbar_search form-control" 
             type="text" 
             placeholder="Поиск файла" />}
         {!isAuth && <div className="navbar_login"><Link to='/login'>Залогиниться</Link></div>}

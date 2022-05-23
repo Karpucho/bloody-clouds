@@ -3,36 +3,40 @@
 .navbar {
   display: flex;
   justify-content: center;
-  height: 50px;
+  height: 8vh;
   background-color: white;
   width: 100%;
 }
 
 .navbar_header {
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
+  color: #c51010;
 }
 
 .navbar_login {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 30px;
+  font-size: 20px;
+
   cursor: pointer;
 }
 
 .navbar_search {
-  width: 200px;
-  margin-left: 30px;
+  width: 300px;
+  margin-left: auto;
 }
 
 .navbar_avatar {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
 .container {
   width: 1140px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }

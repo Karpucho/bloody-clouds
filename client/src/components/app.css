@@ -4,11 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #566885;
+  /* color: #566885; */
 }
 
 body {
-
   background-color: #E9E6E6;
 }
 
@@ -26,4 +25,8 @@ body {
   width: 1140px;
   display: flex;
   flex-direction: column;
+}
+
+a {
+  text-decoration: none;
 }
