@@ -1,0 +1,38 @@
+@import '../../utils/colors.css';
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  background-color: white;
+  width: 100%;
+}
+
+.navbar_header {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.navbar_login {
+  margin-left: auto;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar_search {
+  width: 200px;
+  margin-left: 30px;
+}
+
+.navbar_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.container {
+  width: 1140px;
+  display: flex;
+  align-items: center;
+}
