@@ -28,7 +28,7 @@ function Registration(props) {
                className="form-control" 
                id="exampleInputPassword1" />
       </div>
-      <button onClick={() => registration(email, password)} type="submit" className="btn btn-primary">Зарегистрироваться</button>
+      <button onClick={() => registration(email, password)} type="submit" className="btn btn-primary btn-lg">Зарегистрироваться</button>
     </form>
   );
 }

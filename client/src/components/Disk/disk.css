@@ -10,6 +10,11 @@
 
 .disk_create {
   margin-left: 10px;
+  border-radius: 10px;
+}
+
+.disk_back {
+  border-radius: 10px;
 }
 
 .disk_upload-input {
@@ -17,14 +22,21 @@
 }
 
 .disk_upload-label {
-  border: dashed #566885 2px;
+  border: dashed #c51010 2px;
   padding: 5px 10px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 30px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  background: white;
 }
 
 .disk_select {
   margin-left: auto;
+  width: auto;
+  border-radius: 10px;
+
 }
 
 .disk_list,
@@ -52,11 +64,13 @@
   width: 100%;
   height: calc(100vh - 50px -40px);
   margin: 20px;
-  border: dashed #566885 2px;
+  border: dashed #c51010 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
+  background: white;
+  border-radius: 10px;
 }
 
 .popup {
@@ -71,6 +85,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* box-shadow: 0 2px 8px rgb(0 0 0 / 30%); */
 }
 
 .popup_content {
@@ -84,6 +99,7 @@
 
 .popup_create {
   align-self: flex-end;
+  border-radius: 10px;
 }
 
 .popup_header {

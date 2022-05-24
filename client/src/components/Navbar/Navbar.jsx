@@ -41,7 +41,7 @@ function Navbar() {
     <div className='navbar'>
       <div className="container">
         <Link to='/'><img src={Logo} alt="logo" className="navbar_logo" /></Link>
-        <div className="navbar_header">Bloody Cloud</div>
+        <div className="navbar_header">Bloody Clouds</div>
         {isAuth && <input 
             value={searchName} // возможно лишнее 
             onChange={(event) => searchChangeHandler(event)}
@@ -50,7 +50,7 @@ function Navbar() {
             placeholder="Поиск файла" />}
         {!isAuth && <div className="navbar_login"><Link to='/login'>Логин</Link></div>}
         {!isAuth && <div className="navbar_registration"><Link to='/registration'>Регистрация</Link></div>}
-        {isAuth && <div className="navbar_login" onClick={() => dispatch(logout())}>Выход</div>}
+        {isAuth && <div className="navbar_login btn btn-link" onClick={() => dispatch(logout())}>Выход</div>}
         {isAuth && <Link to='/profile'><img src={avatar} alt="avatar" className="navbar_avatar" /></Link> }
       </div>
     </div>

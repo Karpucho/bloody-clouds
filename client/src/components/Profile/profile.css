@@ -1,0 +1,11 @@
+.profile {
+  /* border: 1px solid #000000; */
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+}
+
+.profile_el {
+  margin-top: 30px;
+}

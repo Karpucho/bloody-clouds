@@ -14,7 +14,7 @@ function Uploader() {
     <div className="uploader">
       <div className="uploader_header">
         <div className="uploader_title">Загруженные файлы</div>
-        <button className="uploader_close" onClick={() => dispatch(hideUploader())}>X</button>
+        <button className="uploader_close btn-close" onClick={() => dispatch(hideUploader())}></button>
       </div>
 
       { files.length ? files.map(file => <UploadFile key={file.id} file={file} />) : 'пусто' } 

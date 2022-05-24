@@ -1,5 +1,7 @@
 .filelist {
   margin: 20px 0;
+  border: 1px solid;
+  background: white;
 }
 
 .filelist_header {

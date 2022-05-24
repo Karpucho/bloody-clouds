@@ -67,11 +67,11 @@ function Disk() {
   }
 
   return ( !dragEnter ? // возможно добавить слушатели onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler} в див disk
-    <div className='disk' onDragEnter={dragEnterHandler}> 
+    <div className='disk' onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}> 
       <div className="disk_btns">
 
-        {currentDir && <button className="disk_back" onClick={() => backClickHandler()}>Назад</button>}
-        <button className="disk_create" onClick={() => showPopupHandler()}>Создать папку</button>
+        {currentDir && <button className="disk_back btn btn-warning" onClick={() => backClickHandler()}>Назад</button>}
+        <button className="disk_create btn btn-warning" onClick={() => showPopupHandler()}>Создать папку</button>
 
         <div className="disk_upload">
           <label htmlFor="disk_upload-input" className="disk_upload-label">Загрузить файл</label>
@@ -80,7 +80,7 @@ function Disk() {
 
         <select value={sort}
                 onChange={(event) => setSort(event.target.value)}
-                className="disk_select">
+                className="disk_select form-select form-select-sm">
           <option value="name">По имени</option>
           <option value="type">По типу</option>
           <option value="date">По дате</option>

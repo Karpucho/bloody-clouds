@@ -13,9 +13,14 @@ function Profile() {
   }
 
   return (
-    <div>
-      <button onClick={() => dispatch(deleteAvatar())} className="">Удалить аватар</button>
-      <input accept='image/*' onChange={(event) => changeAvatarHandler(event)} type="file" className="" placeholder="Загрузить аватар" />
+    <div className="profile">
+      <h4>Сменить аватар</h4>
+      
+      <div className="input-group">
+        <input onChange={(event) => changeAvatarHandler(event)} type="file" accept='image/*' className="profile_el form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" />
+      </div>
+
+      <button onClick={() => dispatch(deleteAvatar())} className="profile_el btn btn-outline-danger">Удалить аватар</button>
     </div>
   );
 }
