@@ -13,12 +13,9 @@
 }
 
 .authorization_header {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-.authorization input {
-    margin: 10px 20px;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 40px;
   }
 
 .authorization_btn {

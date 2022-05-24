@@ -48,8 +48,8 @@ function Navbar() {
             className="navbar_search form-control" 
             type="text" 
             placeholder="Поиск файла" />}
-        {!isAuth && <div className="navbar_login"><Link to='/login'>Залогиниться</Link></div>}
-        {!isAuth && <div className="navbar_registration"><Link to='/registration'>Зарегистрироваться</Link></div>}
+        {!isAuth && <div className="navbar_login"><Link to='/login'>Логин</Link></div>}
+        {!isAuth && <div className="navbar_registration"><Link to='/registration'>Регистрация</Link></div>}
         {isAuth && <div className="navbar_login" onClick={() => dispatch(logout())}>Выход</div>}
         {isAuth && <Link to='/profile'><img src={avatar} alt="avatar" className="navbar_avatar" /></Link> }
       </div>

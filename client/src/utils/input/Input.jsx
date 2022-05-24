@@ -1,12 +1,13 @@
 import React from 'react';
-import './input.css'
+// import './input.css'
 
 function Input(props) {
   return (
 [      <input onChange={(event) => props.setValue(event.target.value)}
               value={props.value}
               type={props.type}
-              placeholder={props.placeholder} />]
+              placeholder={props.placeholder}
+              className="form-control" />]
   );
 }
 

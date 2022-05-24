@@ -9,12 +9,27 @@ function Registration(props) {
   const [password, setPassword] = useState('')
 
   return (
-    <div className='authorization'>
+    <form className='authorization'>
       <div className="authorization_header">Регистрация</div>
-      <Input value={email} setValue={setEmail} type='text' placeholder='Введите email' />
-      <Input value={password} setValue={setPassword} type='password' placeholder='Введите пароль' />
-      <button className="authorization_btn" onClick={() => registration(email, password)}>Зарегистрироваться</button>
-    </div>
+      <div className="mb-3">
+        <label for="exampleInputEmail1" className="form-label">Email</label>
+        <Input value={email} 
+               setValue={setEmail} 
+               type="email" 
+               className="form-control" 
+               id="exampleInputEmail1" 
+               aria-describedby="emailHelp" />
+      </div>
+      <div className="mb-3">
+        <label for="exampleInputPassword1" className="form-label">Password</label>
+        <Input value={password}
+               setValue={setPassword} 
+               type="password" 
+               className="form-control" 
+               id="exampleInputPassword1" />
+      </div>
+      <button onClick={() => registration(email, password)} type="submit" className="btn btn-primary">Зарегистрироваться</button>
+    </form>
   );
 }
 
