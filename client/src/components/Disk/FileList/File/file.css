@@ -31,8 +31,8 @@
 
 .file_btn {
   display: none;
-  /* width: 90px;
-  height: 30px; */
+  border-radius: 10px;
+
 }
 
 .file:hover .file_date {
@@ -52,24 +52,36 @@
   grid-column-start: 6;
   margin-left: 5px;
   display: block;
-
 }
 
-
 .file-plate {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 200px; */
   display: flex;
   cursor: pointer;
   flex-direction: column;
   align-items: center;
+  /* padding-bottom: 100px; */
+  padding: 10px;
+  margin: 10px;
+}
+
+.file-plate:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+  background: rgb(245, 244, 244);
+  border-radius: 10px;
+  /* height: auto; */
 }
 
 .file-plate_img {
   width: 100px;
   height: 100px;
 }
-
+.file-plate_name {
+  /* text-align: center; */
+  margin-bottom: 10px;
+}
 .file-plate_btns {
   display: none;
 }
@@ -78,3 +90,24 @@
   display: flex;
 }
 
+.file_download,
+.file_delete {
+  width: 32px;
+  height: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: no-repeat center center;
+  background-size: contain;
+  margin: 0 10px;
+}
+
+.file_download {
+  background-image: url('../../../../assets/img/download.png');
+  
+}
+
+.file_delete {
+  background-image: url('../../../../assets/img/x-button.png');
+
+}

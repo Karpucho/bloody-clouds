@@ -11,7 +11,7 @@ function FileList() {
 
   if (!files.length) {
     return (
-      <div className="loader">Эта папка пока пуста</div>
+      <div className="loader"><h4>Эта папка пока пуста</h4></div>
     )
   }
 

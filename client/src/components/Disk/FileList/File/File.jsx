@@ -48,9 +48,13 @@ function File({file}) {
       <div className='file-plate' onClick={() => openDirHandler(file)}>
         <img src={file.type === 'dir' ? dirLogo : fileLogo} alt='file_pic' className='file-plate_img'/>
         <div className='file-plate_name'>{file.name}</div>
+        {/* <div className='file-plate_btns'>
+          { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file-plate_btn file_download btn btn-outline-success">З</button> }
+          <button onClick={(event) => deleteClickHandler(event)} className="file-plate_btn file_delete btn btn-outline-danger">У</button>
+        </div> */}
         <div className='file-plate_btns'>
-          { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file-plate_btn file_download">Загрузить</button> }
-          <button onClick={(event) => deleteClickHandler(event)} className="file-plate_btn file_delete">Удалить</button>
+          { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file-plate_btn file_download"></button> }
+          <button onClick={(event) => deleteClickHandler(event)} className="file-plate_btn file_delete"></button>
         </div>
       </div>
     );
