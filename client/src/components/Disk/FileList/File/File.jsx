@@ -37,8 +37,8 @@ function File({file}) {
         <div className='file_name'>{file.name}</div>
         <div className='file_date'>{file.date.slice(0, 10)}</div>
         <div className='file_size'>{sizeFiles(file.size)}</div>
-        { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file_btn file_download">Загрузить</button> }
-        <button onClick={(event) => deleteClickHandler(event)} className="file_btn file_delete">Удалить</button>
+        { file.type !== 'dir' && <button onClick={(event) => downloadClickHandler(event)} className="file_btn file_download btn btn-outline-success">Скачать</button> }
+        <button onClick={(event) => deleteClickHandler(event)} className="file_btn file_delete btn btn-outline-danger">Удалить</button>
       </div>
     );
   }
