@@ -15,7 +15,7 @@
 .uploader_header {
   display: flex;
   justify-content: space-between;
-  background: blue;
+  background:#c51010;
   margin: 0 0 10px 0;
   height: 50px;
   padding: 10px;
@@ -23,7 +23,9 @@
 
 .uploader_title {
   color: #E9E6E6;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+
 }
 
 .uploader_close {

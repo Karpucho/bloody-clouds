@@ -21,7 +21,13 @@
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
+  color: #c51010;
+  font-weight: 600;
+}
 
+a {
+  color: #c51010;
+  font-weight: 600;
 }
 
 .navbar_registration {
@@ -39,7 +45,6 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  /* border: 2px solid rgb(14, 58, 233); */
 }
 
 .navbar_avatar:hover {

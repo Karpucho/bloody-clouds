@@ -22,7 +22,7 @@
 }
 
 .disk_upload-label {
-  border: dashed #c51010 2px;
+  /* border: dashed #c51010 2px; */
   padding: 5px 10px;
   cursor: pointer;
   margin-left: 30px;
