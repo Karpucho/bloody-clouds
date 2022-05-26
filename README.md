@@ -1,5 +1,5 @@
 # Bloody Clouds
-Облачное хранилище данных. Основные возможности:<br>
+Облачное хранилище данных c дружелюбным и интуитивно понятным UI. Основные возможности:<br>
 - Регистрация, авторизация<br> 
 - Возможность создания папок и загрузки файлов, как по одиночке, так и списком. В том числе перетаскиванием<br>
 - Возможность скачивания ранее загруженного файла<br>
@@ -76,7 +76,7 @@ Backend: Node.JS, Express, MongoDB, Mongoose, JWT.
 ###### Создание папки
 [![2022-05-26-18-48.png](https://i.postimg.cc/52qWJtZb/2022-05-26-18-48.png)](https://postimg.cc/MnTFbz6F)
 ###### Плиточный вид
-[![2022-05-26-18-49.png](https://i.postimg.cc/ThMBM80K/2022-05-26-18-49.png)](https://postimg.cc/K3f0BHdb)
+[![2.png](https://i.postimg.cc/63RdbTjx/2.png)](https://postimg.cc/3484drQt)
 ###### Поиск по облаку
 [![1-cut-photo-ru.png](https://i.postimg.cc/XY8N8xNf/1-cut-photo-ru.png)](https://postimg.cc/yDDz6mZx)
 ###### Смена аватара
