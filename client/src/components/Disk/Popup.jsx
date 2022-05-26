@@ -14,6 +14,7 @@ function Popup() {
   function createDirHandler() {
     dispatch(createDir(currentDir, dirName))
     setDirName('')
+    window.location.reload()
   }
 
   return (

@@ -35,12 +35,16 @@ export const auth = () => {
   return async (dispatch) => {
     try {
 
-      const response = await axios.get(`${API_URL}api/auth/auth`, {
-        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
-      })
+      if (localStorage.getItem('token')) {
+        const response = await axios.get(`${API_URL}api/auth/auth`, {
+          headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+        })
+        localStorage.setItem('token', response.data.token)
+        dispatch(setUser(response.data.user))
+      }
+      
+     // доделать сюда else
 
-      localStorage.setItem('token', response.data.token)
-      dispatch(setUser(response.data.user))
     } catch (error) {
       alert(error.response.data.message)
       localStorage.removeItem('token')

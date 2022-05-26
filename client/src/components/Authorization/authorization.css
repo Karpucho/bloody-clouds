@@ -1,5 +1,3 @@
-@import '../../utils/colors.css';
-
 .authorization {
   display: flex;
   flex-direction: column;

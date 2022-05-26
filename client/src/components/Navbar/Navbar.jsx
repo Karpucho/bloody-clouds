@@ -33,7 +33,7 @@ function Navbar() {
         dispatch(searchFiles(value)) // проверить
       }, 1000, event.target.value))
     } else {
-      dispatch(getFiles(currentDir))
+      dispatch(getFiles(currentDir, 'type'))
     }
   }
 

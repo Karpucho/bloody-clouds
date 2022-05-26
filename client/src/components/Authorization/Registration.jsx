@@ -12,7 +12,7 @@ function Registration(props) {
     <form className='authorization'>
       <div className="authorization_header">Регистрация</div>
       <div className="mb-3">
-        <label for="exampleInputEmail1" className="form-label">Email</label>
+        <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
         <Input value={email} 
                setValue={setEmail} 
                type="email" 
@@ -21,7 +21,7 @@ function Registration(props) {
                aria-describedby="emailHelp" />
       </div>
       <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label">Password</label>
+        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
         <Input value={password}
                setValue={setPassword} 
                type="password" 

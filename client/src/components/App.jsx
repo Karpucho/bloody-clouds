@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../actions/user';
 import Disk from './Disk/Disk';
 import Profile from './Profile/Profile';
-import Abc from './Abc/Abc';
+import Plug from './Plug/Plug';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
 
   useEffect(()=> {
     dispatch(auth())
-  }, [])
+  }, [dispatch])
 
   return (
    <BrowserRouter>
@@ -25,10 +25,8 @@ function App() {
       <Navbar />
         <div className="wrap">
           {!isAuth ?
-        
             <Routes>
-            <Route path="/" element={<Abc />} />
-
+              <Route path="/" element={<Plug />} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/login" element={<Login />} />
             </Routes>
