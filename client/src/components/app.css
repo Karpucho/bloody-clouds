@@ -6,7 +6,8 @@
 }
 
 body {
-  background-color: #ebe9e9;
+  background: url('../assets/img/cloud.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 #root {
