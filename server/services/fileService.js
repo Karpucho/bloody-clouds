@@ -1,6 +1,5 @@
 const fs = require('fs');
 const config = require('config');
-// const File = require('../models/File');
 
 class FileService {
   createDir(file) {
@@ -13,11 +12,8 @@ class FileService {
           fs.mkdirSync(path, { recursive: true }); // возможно fs.mkdirSync(filePath, { recursive: true }) и убрать Sync
           resolve({ message: 'Файл создан!' }); // возможно добавить returnы перед резолвами реджектами или после return без ничего
         }
-        // reject({ message: 'Файл уще существует!' });
         reject(new Error('Файл уще существует!'));
       } catch (error) {
-        // reject({ message: 'Файловая ошибка!' });
-        // reject(new Error('Файловая ошибка!'));
         reject(error.message);
       }
     }));

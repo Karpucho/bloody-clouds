@@ -6,12 +6,17 @@
 - Сортировка и удаление папок, файлов<br>
 - Возможность выбора отображения - список, плитки<br>
 - Поиск папок и файлов в своем облаке<br>
-- Возможность установить и удалить аватар<br>
-Реализованы клиентская и серверная части.
+- Возможность установить и удалить аватар<br><p>
+Реализованы клиентская и серверная части.</p>
 
 ## Инструкция по запуску приложения
-Файл с настройками БД лежит по пути:
-> server/db/config/config.json
+Перед запуском приложения необходимо настроить БД (изменить логин и пароль от облачной БД Mongo на свои) и изменить пути под свой локальный компьютер<br>
+Файл с настройками БД и путями находится здесь:
+> server/config/default.json<br>
+
+В этом файле необходимо изменить пути сохранения в свойствах filePath и staticPath на свои.
+В свойство dbUrl добавить строку со своими логином и паролем от облачного аккаунта Mongo <br>
+При правильных настройках файлы, загруженные в приложение, будут сохраняться по пути указанному в filePath на локальной машине.
 
 1. После клонирования приложения перейти в папку 'client'<br>
 ``` JS
@@ -38,85 +43,41 @@ cd server
 npm i
 ```
 
-6. Создать базу данных<br>
-``` JS
-npx sequelize db:create
-```
-
-7. Мигрировать базу<br>
-``` JS
-npx sequelize db:migrate
-```
-
-8. Засеять сиды<br>
-``` JS
-npx sequelize db:seed:all
-```
-
-9. Запустить сервер<br>
+6. Запустить сервер<br>
 ``` JS
 npm run dev
 ```
 
-10. Выйти из папки server<br>
+7. Выйти из папки server<br>
 ``` JS
 cd ..
 ```
 
-11. Перейти в папку 'client'<br>
+8. Перейти в папку 'client'<br>
 ``` JS
 cd client
 ```
 
-12. Запустить приложение<br>
+9. Запустить приложение<br>
 ``` JS
 npm start
 ```
 
-## Возможности API
-
-### Певцы
-> GET /api/singers - перечень всех музыкантов
-
-Есть возможность фильтровать по query:
-singerSlice - поиск по части имени музыканта
-
-> GET /api/singers/:id - поиск музыканта по id.
-
-> POST /api/singers - добавление нового музыканта в базу.
-Тело запроса:
-- name : string - Имя добавляемого музыканта
-
-> PUT /api/singers/:id - редактирование информации о певце по id.
-Тело запроса:
-- name : string - Новое имя для певца
-
-> DELETE /api/singers/:id - удаление певца по id.
-
-### Песни
-> GET /api/songs - перечень всех песен
-
-Есть возможность фильтровать по query:
-songsSlice - поиск по части названия песни
-
-> GET /api/songs/:id - поиск песни по id.
-
-> POST /api/songs - добавление новой песни в базу.
-
-Тело запроса:
-- name : string - Название добавляемой песни
-- singerSlice : number - id певца
-
-> PUT /api/songs/:id - редактирование информации о песни по id.
-Тело запроса:
-- name : string - Новое название для песни
-- singerSlice : number - id певца
-
-> DELETE /api/songs/:id - удаление песни по id.
-
 ### Стек приложения
 
-Frontend: React, React-Query<br>
-Backend: Node.JS, Express, PostgreSQL, Sequelize ORM.
+Frontend: React, Redux, Redux-thunk, Axios<br>
+Backend: Node.JS, Express, MongoDB, Mongoose, JWT.
 
 ### Скриншоты
+###### 1
+[![2022-05-26-18-53-1.png](https://i.postimg.cc/nLBjpqnM/2022-05-26-18-53-1.png)](https://postimg.cc/zLDXkbb1)
+###### 2
+[![2022-05-26-18-47.png](https://i.postimg.cc/2yMr1XwY/2022-05-26-18-47.png)](https://postimg.cc/bSxKMgWV)
+###### 3
+[![2022-05-26-18-48.png](https://i.postimg.cc/52qWJtZb/2022-05-26-18-48.png)](https://postimg.cc/MnTFbz6F)
+###### 4
+[![2022-05-26-18-49.png](https://i.postimg.cc/ThMBM80K/2022-05-26-18-49.png)](https://postimg.cc/K3f0BHdb)
+###### 5
+[![1-cut-photo-ru.png](https://i.postimg.cc/XY8N8xNf/1-cut-photo-ru.png)](https://postimg.cc/yDDz6mZx)
+###### 6
+[![2022-05-26-18-53.png](https://i.postimg.cc/bvwyFbdK/2022-05-26-18-53.png)](https://postimg.cc/K1Ch11PN)
