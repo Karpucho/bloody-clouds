@@ -9,6 +9,7 @@ import { auth } from '../actions/user';
 import Disk from './Disk/Disk';
 import Profile from './Profile/Profile';
 import Plug from './Plug/Plug';
+import Footer from './Footer/Footer';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
 
   useEffect(()=> {
     dispatch(auth())
-  }, [dispatch])
+  }, [])
 
   return (
    <BrowserRouter>
@@ -37,6 +38,7 @@ function App() {
             </Routes>
           }
         </div>
+      <Footer />
     </div>
    </BrowserRouter>
   );

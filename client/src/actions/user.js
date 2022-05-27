@@ -39,14 +39,15 @@ export const auth = () => {
         const response = await axios.get(`${API_URL}api/auth/auth`, {
           headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
         })
+
         localStorage.setItem('token', response.data.token)
         dispatch(setUser(response.data.user))
+      } else {
+        console.log('токена нет'); // доделать сюда else
       }
-      
-     // доделать сюда else
 
     } catch (error) {
-      alert(error.response.data.message)
+      alert(error.response.data.message) // убрать из консоли, придумать что то с ошибкой
       localStorage.removeItem('token')
     }
   }

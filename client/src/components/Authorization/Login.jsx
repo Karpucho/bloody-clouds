@@ -32,7 +32,9 @@ function Login() {
                className="form-control" 
                id="exampleInputPassword1" />
       </div>
-      <button onClick={() => {dispatch(login(email, password)); navigate('/')}} type="submit" className="btn btn-primary btn-lg">Войти</button>
+      <button onClick={()=>{dispatch(login(email, password)); navigate('/')}} 
+              type="submit" 
+              className="btn btn-primary btn-lg">Войти</button>
     </form>
   );
 }

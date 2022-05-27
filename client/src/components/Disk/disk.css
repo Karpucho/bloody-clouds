@@ -12,13 +12,11 @@
   margin-left: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
-
 }
 
 .disk_back {
   border-radius: 10px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
-
 }
 
 .disk_upload-input {
@@ -34,7 +32,6 @@
   text-align: center;
   background: white;
   box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
-
 }
 
 .disk_select {
@@ -42,7 +39,6 @@
   width: auto;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
-
 }
 
 .disk_list,
@@ -149,5 +145,47 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  .disk_btns {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .disk_create,
+  .disk_list,
+  .disk_plate,
+  .disk_back {
+    margin: 5px;
+  }
+  .disk_upload-label {
+    margin: 5px;
+    width: auto;
+  }
+  .disk_select {
+    width: auto;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .disk_btns {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .disk_create,
+  .disk_list,
+  .disk_plate,
+  .disk_back {
+    margin: 5px;
+  }
+  .disk_upload-label {
+    margin: 5px;
+    width: auto;
+  }
+  .disk_select {
+    width: auto;
+    margin: 5px;
   }
 }

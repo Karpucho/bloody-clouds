@@ -21,7 +21,7 @@ body {
 }
 
 .wrap {
-  width: 1140px;
+  width: 65vw;
   display: flex;
   flex-direction: column;
 }
