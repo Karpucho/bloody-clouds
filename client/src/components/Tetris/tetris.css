@@ -1,0 +1,24 @@
+.tetris {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tetris_header {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+
+}
+
+.btn {
+  margin: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}
+
+.Game {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}

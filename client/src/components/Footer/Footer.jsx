@@ -4,7 +4,7 @@ import './footer.css'
 function Footer(props) {
   return (
     <div className="footer">
-      <p class="cp-text">
+      <p className="cp-text">
           © Copyright 2022 Karpov Igor. All rights reserved.
       </p>
     </div>

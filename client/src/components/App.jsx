@@ -10,6 +10,7 @@ import Disk from './Disk/Disk';
 import Profile from './Profile/Profile';
 import Plug from './Plug/Plug';
 import Footer from './Footer/Footer';
+import Tetris from './Tetris/Tetris';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
               <Route path="/" element={<Plug />} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/tetris" element={<Tetris />} />
             </Routes>
             :
             <Routes>
