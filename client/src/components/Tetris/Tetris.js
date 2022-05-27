@@ -159,7 +159,7 @@ export default function Tetris() {
 
       { state.status === GAME_STATUS.GameOver && <button 
                          onClick={()=>dispatch({type: ACTION.Restart})}
-                         className="btn btn-danger btn-lg">Game Over! Play again</button> }
+                         className="btn_tetris btn btn-danger btn-lg">Game Over! Play again</button> }
     </div>
   ); 
 }

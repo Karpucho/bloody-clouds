@@ -8,6 +8,7 @@
 body {
   background: url('../assets/img/cloud.png') no-repeat center center fixed;
   background-size: cover;
+
 }
 
 #root {
@@ -18,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .wrap {
