@@ -65,7 +65,7 @@ npm start
 
 ### Стек приложения
 
-Frontend: React, Redux, Redux-thunk, Axios<br>
+Frontend: React, Redux, Redux-thunk, Bootstrap, Axios<br>
 Backend: Node.JS, Express, MongoDB, Mongoose, JWT.
 
 ### Скриншоты
