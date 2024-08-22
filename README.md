@@ -1,85 +1,85 @@
 # Bloody Clouds
-Облачное хранилище данных c дружелюбным и интуитивно понятным UI. Основные возможности:<br>
-- Регистрация, авторизация. Или можно сыграть в тетрис, если нет желания регистрироваться<br> 
-- Возможность создания папок и загрузки файлов, как по одиночке, так и списком. В том числе перетаскиванием<br>
-- Возможность скачивания ранее загруженного файла<br>
-- Сортировка и удаление папок, файлов<br>
-- Возможность выбора отображения - список, плитки<br>
-- Поиск папок и файлов в своем облаке<br>
-- Возможность установить и удалить аватар<br><p>
-Реализованы клиентская и серверная части.</p>
+A cloud storage solution with a friendly and intuitive UI. Key features include:<br>
+- Registration and authentication. Or you can just play Tetris if you don't feel like registering<br>
+- Ability to create folders and upload files, both individually and in batches, including drag-and-drop functionality<br>
+- Ability to download previously uploaded files<br>
+- Sorting and deleting folders and files<br>
+- Option to switch between list and tile views<br>
+- Search functionality for folders and files within your cloud<br>
+- Ability to set and remove an avatar<br><p>
+Both client-side and server-side implementations are provided.</p>
 
-## Инструкция по запуску приложения
-Перед запуском приложения необходимо настроить БД (изменить логин и пароль от облачной БД Mongo на свои) и изменить пути под свой локальный компьютер.<br>
-Файл с настройками БД и путями находится здесь:
+## Application Setup Instructions
+Before launching the application, you need to configure the database (replace the login and password for the Mongo cloud database with your own) and adjust the paths to your local machine.<br>
+The configuration file for the database and paths is located here:
 > server/config/default.json<br>
 
-В этом файле необходимо изменить пути сохранения в свойствах filePath и staticPath на свои.
-В свойство dbUrl добавить строку со своими логином и паролем от облачного аккаунта Mongo.<br>
-При правильных настройках файлы, загруженные в приложение, будут сохраняться по пути указанному в filePath на локальной машине.
+In this file, you need to change the save paths in the `filePath` and `staticPath` properties to your own.
+Add your Mongo cloud account's login and password to the `dbUrl` property.<br>
+With correct settings, files uploaded to the application will be saved to the path specified in `filePath` on your local machine.
 
-1. После клонирования приложения перейти в папку 'client'<br>
+1. After cloning the application, navigate to the 'client' folder<br>
 ``` JS
 cd client
 ```
 
-2. Установить пакеты<br>
+2. Install the packages<br>
 ``` JS
 npm i
 ```
 
-3. Выйти из папки client<br>
+3. Exit the 'client' folder<br>
 ``` JS
 cd ..
 ```
 
-4. Перейти в папку 'server'<br>
+4. Navigate to the 'server' folder<br>
 ``` JS
 cd server
 ```
 
-5. Установить пакеты<br>
+5. Install the packages<br>
 ``` JS
 npm i
 ```
 
-6. Запустить сервер<br>
+6. Start the server<br>
 ``` JS
 npm run dev
 ```
 
-7. Выйти из папки server<br>
+7. Exit the 'server' folder<br>
 ``` JS
 cd ..
 ```
 
-8. Перейти в папку 'client'<br>
+8. Navigate to the 'client' folder<br>
 ``` JS
 cd client
 ```
 
-9. Запустить приложение<br>
+9. Start the application<br>
 ``` JS
 npm start
 ```
 
-### Стек приложения
+### Application Stack
 
 Frontend: React, Redux, Redux-thunk, Bootstrap, Axios<br>
 Backend: Node.JS, Express, MongoDB, Mongoose, JWT.
 
-### Скриншоты
-###### Страница логина
+### Screenshots
+###### Login Page
 [![2022-05-26-18-53-1.png](https://i.postimg.cc/nLBjpqnM/2022-05-26-18-53-1.png)](https://postimg.cc/zLDXkbb1)
-###### Общий вид приложения
+###### Application Overview
 [![2022-05-26-18-47.png](https://i.postimg.cc/2yMr1XwY/2022-05-26-18-47.png)](https://postimg.cc/bSxKMgWV)
-###### Создание папки
+###### Folder Creation
 [![2022-05-26-18-48.png](https://i.postimg.cc/52qWJtZb/2022-05-26-18-48.png)](https://postimg.cc/MnTFbz6F)
-###### Плиточный вид
+###### Tile View
 [![2.png](https://i.postimg.cc/63RdbTjx/2.png)](https://postimg.cc/3484drQt)
-###### Поиск по облаку
+###### Cloud Search
 [![1-cut-photo-ru.png](https://i.postimg.cc/XY8N8xNf/1-cut-photo-ru.png)](https://postimg.cc/yDDz6mZx)
-###### Смена аватара
+###### Avatar Change
 [![2022-05-26-18-53.png](https://i.postimg.cc/bvwyFbdK/2022-05-26-18-53.png)](https://postimg.cc/K1Ch11PN)
-###### Тетрис
+###### Tetris
 [![2022-05-27-18-24.png](https://i.postimg.cc/N0KH9StC/2022-05-27-18-24.png)](https://postimg.cc/06qQhtb7)
